@@ -1,1 +1,3 @@
-.idea
+/.idea
+/test.csv
+/train.csv
