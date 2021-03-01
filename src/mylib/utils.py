@@ -49,7 +49,7 @@ def cal_idf_dict(words: List[List], save_path=None):
             idf_freq[w] = idf_freq.get(w, 0.0) + 1.0
     length = len(words)
     for k, v in idf_freq.items():
-        idf_freq[k] *= math.log(length / (v + 1))
+        idf_freq[k] *= math.log(length / (v + 1)) / v
 
     if save_path:
         with open(save_path, 'w', encoding="utf-8") as f:
