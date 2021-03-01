@@ -4,7 +4,7 @@ import jieba.posseg
 import jieba.analyse
 import math
 from .word_tools import *
-from ..config import pretrain_words_dict
+from ..config import pretrain_words_dict, idf_save_path
 
 jieba.load_userdict(pretrain_words_dict)
 
@@ -34,7 +34,7 @@ def query_clean(ql):
     return "\t".join(res)
 
 
-def get_keywords(sentence, topk=20, idf_path=None):
+def get_keywords(sentence, topk=20, idf_path=idf_save_path):
     tfidf = jieba.analyse.TFIDF(idf_path=idf_path)
     return tfidf.extract_tags(sentence, topK=topk, allowPOS=allowPOS)
 
@@ -54,5 +54,5 @@ def cal_idf_dict(words: List[List], save_path=None):
     if save_path:
         with open(save_path, 'w', encoding="utf-8") as f:
             for k, v in idf_freq.items():
-                f.write(f"{k}\t{v}\n")
+                f.write(f"{k} {v}\n")
     return idf_freq

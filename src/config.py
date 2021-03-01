@@ -10,6 +10,7 @@ train_data_path = os.path.join(data_path, 'train.csv')
 test_data_path = os.path.join(data_path, 'test.csv')
 pretrain_path = os.path.join(cur_dir, 'pretrain')
 pretrain_words_dict = os.path.join(pretrain_path, 'new_word.dic')
+idf_save_path = os.path.join(pretrain_path, 'idf_dict.dic')
 """日志地址"""
 log_path = os.path.join(cur_dir, 'log')
 """特征数"""
