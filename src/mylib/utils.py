@@ -31,10 +31,10 @@ def query_clean(ql):
     for text in texts:
         res.extend(text_cut(text))
     res = [i for i in res if i not in STOP_WORDS and len(i) > 1]
-    return "\t".join(res)
+    return " ".join(res)
 
 
-def get_keywords(sentence, topk=20, idf_path=idf_save_path):
+def get_keywords(sentence, topk=50, idf_path=idf_save_path):
     tfidf = jieba.analyse.TFIDF(idf_path=idf_path)
     return tfidf.extract_tags(sentence, topK=topk, allowPOS=allowPOS)
 
