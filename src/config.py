@@ -41,3 +41,13 @@ fast_parameter = {
     'word_ngrams': 2,
     'max_vocab_size': 50000
 }
+"""模型参数"""
+nb_parameter = {
+    'alpha': 0.001
+}
+
+lr_parameter = {
+    'penalty': 'l2',
+    'solver': 'sag',
+    'multi_class': 'ovr'
+}
